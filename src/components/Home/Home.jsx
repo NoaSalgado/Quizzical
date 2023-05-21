@@ -1,11 +1,11 @@
 import Button from '../Button/Button';
 import './Home.css';
 
-const Home = () => {
+const Home = ({ startGame }) => {
   return (
     <header className='header'>
       <h1 className='main-heading'>Quizzical</h1>
-      <Button>Start Quizz</Button>
+      <Button handleClick={startGame}>Start Quizz</Button>
     </header>
   );
 };
