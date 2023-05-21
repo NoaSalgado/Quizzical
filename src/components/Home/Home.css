@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}
+
+.main-heading {
+  color: var(--clr-secondary-dark);
+  font-size: 2rem;
+  font-family: var(--ff-accent);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
