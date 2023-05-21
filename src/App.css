@@ -2,6 +2,7 @@
 .shape-bottom {
   height: 12.5rem;
   width: 10rem;
+  z-index: -1;
 
   position: absolute;
 }
