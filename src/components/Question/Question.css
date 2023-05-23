@@ -25,3 +25,8 @@
   color: var(--clr-secondary-dark);
   padding: 0.5rem 1.5rem;
 }
+
+.answer.selected {
+  background-color: var(--clr-tertiary-dark);
+  border-color: var(--clr-tertiary-dark);
+}
