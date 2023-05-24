@@ -30,3 +30,13 @@
   background-color: var(--clr-tertiary-dark);
   border-color: var(--clr-tertiary-dark);
 }
+
+.answer.correct {
+  background-color: var(--clr-correct);
+  border-color: var(--clr-correct);
+}
+
+.answer.incorrect {
+  background-color: var(--clr-incorrect);
+  border-color: var(--clr-incorrect);
+}

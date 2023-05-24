@@ -11,6 +11,8 @@
   --clr-tertiary: hsl(210, 65%, 92%);
   --clr-tertiary-dark: hsl(209, 67%, 74%);
   --clr-accent: hsl(53, 100%, 91%);
+  --clr-correct: hsl(133, 46%, 71%);
+  --clr-incorrect: hsl(356, 62%, 91%);
   --ff-primary: 'Poppins', sans-serif;
   --ff-accent: 'Pacifico', cursive;
 }

@@ -1,14 +1,29 @@
 import { decode } from 'html-entities';
 import './Question.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const Question = ({ question }) => {
+const Question = ({ question, quizzStatus, setCorrectAnswers }) => {
+  console.log(quizzStatus);
   const [selectedAnswer, setSelectedAnswer] = useState('');
+  const [answered, setAnswered] = useState(false);
+  const [isCorrect, setIsCorrect] = useState('');
   const answers = [...question.incorrect_answers, question.correct_answer];
 
+  useEffect(checkAnswer, [selectedAnswer]);
+
   function selectAnswer(e) {
+    if (answered) return;
     setSelectedAnswer(e.target.textContent);
-    console.log(selectedAnswer);
+    setAnswered(true);
+  }
+
+  function checkAnswer() {
+    if (selectedAnswer === question.correct_answer) {
+      setIsCorrect('correct');
+      setCorrectAnswers((prevCorrectAnswers) => prevCorrectAnswers + 1);
+    } else {
+      setIsCorrect('incorrect');
+    }
   }
 
   return (
@@ -16,11 +31,13 @@ const Question = ({ question }) => {
       <p className='question'>{decode(question.question)}</p>
       <div className='answers-container'>
         {answers.map((answer, index) => {
+          const isAnswerSelected = decode(answer) === selectedAnswer;
+
           return (
             <p
               key={index}
-              className={`answer ${
-                decode(answer) === selectedAnswer ? 'selected' : ''
+              className={`answer ${isAnswerSelected ? 'selected' : ''} ${
+                quizzStatus === 'finished' && isAnswerSelected ? isCorrect : ''
               }`}
               onClick={selectAnswer}>
               {decode(answer)}

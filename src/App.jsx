@@ -11,11 +11,22 @@ function App() {
     setQuizzStatus('started');
   };
 
+  const endQuizz = () => {
+    setQuizzStatus('finished');
+  };
+
   return (
     <>
       <main>
-        {quizzStatus === 'not started' && <Home startGame={startGame} />}
-        {quizzStatus === 'started' && <Quizz />}
+        {quizzStatus === 'not started' ? (
+          <Home startGame={startGame} />
+        ) : (
+          <Quizz
+            quizzStatus={quizzStatus}
+            endQuizz={endQuizz}
+            startGame={startGame}
+          />
+        )}
       </main>
       <div className='shape-top'></div>
       <div className='shape-bottom'></div>
