@@ -17,11 +17,6 @@
   --ff-accent: 'Pacifico', cursive;
 }
 
-body,
-html {
-  height: 100%;
-}
-
 body {
   background-color: var(--clr-primary);
   font-family: var(--ff-primary);

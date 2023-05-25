@@ -34,24 +34,26 @@ const Quizz = ({ quizzStatus, endQuizz, startGame }) => {
         <Loader />
       ) : (
         <div className='quizz'>
-          {questions.map((question, index) => (
-            <Question
-              key={index}
-              question={question}
-              quizzStatus={quizzStatus}
-              setCorrectAnswers={setCorrectAnswers}
-            />
-          ))}
+          <div className='quizz-questions'>
+            {questions.map((question, index) => (
+              <Question
+                key={index}
+                question={question}
+                quizzStatus={quizzStatus}
+                setCorrectAnswers={setCorrectAnswers}
+              />
+            ))}
+          </div>
           {quizzStatus === 'started' && (
             <Button handleClick={endQuizz}>Check Answers</Button>
           )}
           {quizzStatus === 'finished' && (
-            <>
+            <div className='quizz-results'>
               <p>
                 You scored {correctAnswrs}/{questions.length} correct answers
               </p>
               <Button handleClick={restartQuizz}>Play again</Button>
-            </>
+            </div>
           )}
         </div>
       )}
