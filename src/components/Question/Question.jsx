@@ -3,18 +3,14 @@ import './Question.css';
 import { useEffect, useState } from 'react';
 
 const Question = ({ question, quizzStatus, setCorrectAnswers }) => {
-  console.log(quizzStatus);
   const [selectedAnswer, setSelectedAnswer] = useState('');
-  const [answered, setAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState('');
   const answers = [...question.incorrect_answers, question.correct_answer];
 
   useEffect(checkAnswer, [selectedAnswer]);
 
   function selectAnswer(e) {
-    if (answered) return;
     setSelectedAnswer(e.target.textContent);
-    setAnswered(true);
   }
 
   function checkAnswer() {
